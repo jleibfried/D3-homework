@@ -7,7 +7,6 @@ console.log("here 0");
 // and am crediting it here so I hope that is okay
 d3.json("../../samples.json").then((data) => {
 sortedMetaData = data.metadata;
-console.log("here 1");
 for (i = 0; i < sortedMetaData.length; i++) {        // Get the ID for the individual
     let addID = sortedMetaData[i].id;        // get reference to select element
     let sel = document.getElementById('selDataset');        // create new option element
@@ -34,7 +33,8 @@ function optionChanged() {
     var dropdownMenu = d3.select("#selDataset");
     // Assign the value of the dropdown menu option to a variable
     var dataset = dropdownMenu.property("value");
-      console.log(dataset);
+    let metadataset = dataset;
+    // console.log(dataset);
       
   
   
@@ -42,8 +42,8 @@ function optionChanged() {
 
 // Reading the JSON file
 d3.json("../../samples.json").then((data) => {
-    console.log("in the call");
-    console.log(data.samples);
+    // console.log(dataset);
+    // console.log(data.samples);
     let e;
     for (e of data.samples) {
         if (e.id === dataset) {
@@ -51,7 +51,7 @@ d3.json("../../samples.json").then((data) => {
           break;
         }
       }
-      console.log(e)
+      // console.log(e)
 
     // setting up data for the Bar chart
     sampleData = data.samples;
@@ -71,8 +71,16 @@ d3.json("../../samples.json").then((data) => {
 
 
     // setting up data for the Demo chart
-    // console.log(data.metadata[0]);
-    tableData = data.metadata[0];
+    // console.log(data.metadata);
+    let f;
+    for (f of data.metadata) {
+      if (f.id == metadataset) {
+          found = f;
+          break;
+        }
+      };
+    tableData = f;
+
     tableId = tableData.id;
     tableBb = tableData.bbtype;
     tableEth = tableData.ethnicity;
@@ -91,6 +99,7 @@ d3.json("../../samples.json").then((data) => {
     barGraphing();
     bubbleGraphing();
     demoTabling();
+    gaugeGraphing();
 });
 
 };
@@ -184,3 +193,21 @@ function demoTabling(){
 };
 
 
+function gaugeGraphing() {
+    console.log("GAUGE NOT DONE");
+
+    var data = [
+      {
+        domain: { x: [0, 1], y: [0, 1] },
+        value: 270,
+        title: { text: "Speed" },
+        type: "indicator",
+        mode: "gauge+number"
+      }
+    ];
+    
+    var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+    
+
+    Plotly.newPlot('gauge', data, layout);
+};
