@@ -1,0 +1,6 @@
+launch a terminal in the folder with index.html
+in the terminal run:
+	source activate PythonData
+	python -m http.server
+in a browser run:
+	http://localhost:8000/
