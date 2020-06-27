@@ -41,7 +41,7 @@ function optionChanged() {
 
 
 // Reading the JSON file
-d3.json("../../samples.json").then((data) => {
+d3.json("samples.json").then((data) => {
     // console.log(dataset);
     // console.log(data.samples);
     let e;
