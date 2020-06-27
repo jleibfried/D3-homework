@@ -112,13 +112,13 @@ var trace1 = {
     x: revsliceSamps,
     y: revsliceOTUs,
     text: revsliceOTUs,
-    name: "Greek",
+    name: "Bacteria in Belly Button",
     type: "bar",
     orientation: "h"
   };
 
   var layout = {
-    title: "Greek gods search results",
+    title: "Bacteria in Belly Button",
   };
 
   var data = [trace1];
