@@ -199,10 +199,20 @@ function gaugeGraphing() {
     var data = [
       {
         domain: { x: [0, 1], y: [0, 1] },
-        value: 270,
-        title: { text: "Speed" },
+        value: tableWFreq,
+        title: { text: "Weekly Cleanings" },
         type: "indicator",
+        gauge: {
+          axis: { range: [null, 9] },
+          steps: [
+            { range: [0, 1], color: "red" },
+            { range: [1, 4], color: "pink" },
+            { range: [7, 9], color: "lightblue" }
+          ]
+        },
+
         mode: "gauge+number"
+        
       }
     ];
     
