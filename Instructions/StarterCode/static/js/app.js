@@ -194,7 +194,7 @@ function demoTabling(){
 
 
 function gaugeGraphing() {
-    console.log("GAUGE NOT DONE");
+    // console.log("GAUGE NOT DONE");
 
     var data = [
       {
