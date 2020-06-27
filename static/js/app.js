@@ -1,11 +1,11 @@
 
-console.log("here 0");
+//console.log("here 0");
 
 // Code straight off Slack from Terrence Cummings.
 // I was struggling to make this work and when he posted it 
 // I took full advantage of it in this code.  I thanked him personally
 // and am crediting it here so I hope that is okay
-d3.json("../../samples.json").then((data) => {
+d3.json("samples.json").then((data) => {
 sortedMetaData = data.metadata;
 for (i = 0; i < sortedMetaData.length; i++) {        // Get the ID for the individual
     let addID = sortedMetaData[i].id;        // get reference to select element
